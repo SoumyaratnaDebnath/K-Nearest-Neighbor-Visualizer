@@ -131,7 +131,7 @@ with st.sidebar:
     selected_alpha = 0.5
     selected_step = 0.01
     
-    pattern = st.selectbox('Select a pattern', ['Linear', 'Concentric Circle', 'Spiral', 'Blob', 'Crescent', 'Normal', 'Random'])
+    pattern = st.selectbox('Select a dataset pattern', ['Linear', 'Concentric Circle', 'Spiral', 'Blob', 'Crescent', 'Normal', 'Random'])
     num_classes = st.slider('Select the number of classes', min_value=2, max_value=10, value=2, step=1)
     num_data_points = st.slider('Select the number of data points', min_value=20, max_value=200, value=40, step=20)
     

@@ -72,7 +72,7 @@ def keffect(k):
     # Plot decision boundary
     fig, ax = plt.subplots(figsize=(fig_width, fig_height))
     ax.set_facecolor('#FFF')
-    ax.contourf(XX, YY, labels.reshape(XX.shape), alpha=selected_alpha, cmap='Set1', edgecolors='black')
+    ax.contourf(XX, YY, labels.reshape(XX.shape), alpha=selected_alpha, cmap='Set1')
     scatter = ax.scatter(X[:,0], X[:,1], c=y, cmap='Set1', edgecolors='black')
     ax.set_title('K-Nearest Neighbors (K = {})'.format(k), color='white')
     ax.set_xlabel('Feature 1', color='white')

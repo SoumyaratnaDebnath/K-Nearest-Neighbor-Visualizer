@@ -136,14 +136,10 @@ with st.sidebar:
     num_classes = st.slider('Select the number of classes', min_value=2, max_value=10, value=2, step=1)
     num_data_points = st.slider('Select the number of data points', min_value=20, max_value=200, value=40, step=20)
 
-    st.write("---")
-    st.sidebar.header("Select the number of neighbors (K)")
-    selected_k = st.slider(label="", min_value=1, max_value=50, value=3, step=1)
+    selected_k = st.slider(label="Select the number of neighbors (K)", min_value=1, max_value=50, value=3, step=1)
     
-    st.write("---")
-    st.sidebar.header("Select a range for bias-variance tradeoff")
     range_slider = st.slider(
-        label="",
+        label="Select a range for bias-variance tradeoff",
         min_value=1,
         max_value=50,
         value=(1, 20),

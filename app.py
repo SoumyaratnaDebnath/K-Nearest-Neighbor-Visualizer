@@ -63,8 +63,8 @@ def keffect(k):
     mse, bias, var = bias_variance_decomp(knn, X_train, y_train, X_test, y_test, loss='mse', num_rounds=200, random_seed=1)
     
     # Create a meshgrid for decision boundary plotting
-    a = np.arange(start=X_train[:,0].min()-1, stop=X_train[:,0].max()+1, step=selected_step*(0.01/5))
-    b = np.arange(start=X_train[:,1].min()-1, stop=X_train[:,1].max()+1, step=selected_step*(0.01/5))
+    a = np.arange(start=X_train[:,0].min()-1, stop=X_train[:,0].max()+1, step=0.01)
+    b = np.arange(start=X_train[:,1].min()-1, stop=X_train[:,1].max()+1, step=0.01)
     XX, YY = np.meshgrid(a, b)
     input_array = np.array([XX.ravel(), YY.ravel()]).T
     labels = knn.predict(input_array)

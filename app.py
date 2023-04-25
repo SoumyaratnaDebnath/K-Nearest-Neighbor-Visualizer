@@ -123,14 +123,15 @@ st.title('K-Nearest Neighbors')
 
 with st.sidebar:
     # Set up Streamlit sidebar
-    st.sidebar.header("Plot Settings")
+    # st.sidebar.header("Plot Settings")
     # [fig_width, fig_height] = [st.sidebar.slider(label, 1, 20, default) for label, default in [("Figure Width", 10), ("Figure Height", 6)]]
     # selected_alpha = st.sidebar.slider('Select the transparency of the decision boundary', min_value=0.0, max_value=1.0, value=0.5, step=0.1)
+    # selected_step = st.sidebar.slider('Select the stepsize for the grid', min_value=1, max_value=10, value=5, step=1) * 0.01/5
     fig_width, fig_height = 10, 6
     selected_alpha = 0.5
-    selected_step = st.sidebar.slider('Select the stepsize for the grid', min_value=1, max_value=10, value=5, step=1) * 0.01/5
+    selected_step = 0.01
     
-    st.write("---")
+    # st.write("---")
     st.sidebar.header("Data Settings")
     pattern = st.selectbox('Select a pattern', ['Linear', 'Concentric Circle', 'Spiral', 'Blob', 'Crescent', 'Normal', 'Random'])
     num_classes = st.slider('Select the number of classes', min_value=2, max_value=10, value=2, step=1)

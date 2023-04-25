@@ -167,7 +167,3 @@ if st.button('Get Decision Boundary and Bias Variance Tradeoff'):
     ## st.write('Bias-Variance Tradeoff')
     # fig2 = plot_bias_variance_tradeoff(min(start_value, num_data_points), min(end_value, num_data_points))
     # st.write(fig2)
-
-
-
-    

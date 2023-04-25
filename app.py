@@ -123,7 +123,7 @@ st.title('K-Nearest Neighbors')
 
 with st.sidebar:
     # Set up Streamlit sidebar
-    # st.sidebar.header("Plot Settings")
+
     # [fig_width, fig_height] = [st.sidebar.slider(label, 1, 20, default) for label, default in [("Figure Width", 10), ("Figure Height", 6)]]
     # selected_alpha = st.sidebar.slider('Select the transparency of the decision boundary', min_value=0.0, max_value=1.0, value=0.5, step=0.1)
     # selected_step = st.sidebar.slider('Select the stepsize for the grid', min_value=1, max_value=10, value=5, step=1) * 0.01/5
@@ -131,14 +131,12 @@ with st.sidebar:
     selected_alpha = 0.5
     selected_step = 0.01
     
-    # st.write("---")
-    st.sidebar.header("Data Settings")
     pattern = st.selectbox('Select a pattern', ['Linear', 'Concentric Circle', 'Spiral', 'Blob', 'Crescent', 'Normal', 'Random'])
     num_classes = st.slider('Select the number of classes', min_value=2, max_value=10, value=2, step=1)
     num_data_points = st.slider('Select the number of data points', min_value=20, max_value=200, value=40, step=20)
     
     st.write("---")
-    st.sidebar.header("Model Settings")
+    
     selected_k = st.slider(label="Select the number of neighbors (K)", min_value=1, max_value=50, value=3, step=1)
     range_slider = st.slider(
         label="Select a range for bias-variance tradeoff",
@@ -148,8 +146,6 @@ with st.sidebar:
         step=1
     )
     start_value, end_value = range_slider
-
-    st.write("---")
 
 if st.button('Get Decision Boundary and Bias Variance Tradeoff'):
     # st.write('Decision Boundary')

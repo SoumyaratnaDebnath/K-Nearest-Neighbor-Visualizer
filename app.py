@@ -63,8 +63,8 @@ def keffect(k):
     mse, bias, var = bias_variance_decomp(knn, X_train, y_train, X_test, y_test, loss='mse', num_rounds=200, random_seed=1)
     
     # Create a meshgrid for decision boundary plotting
-    a = np.arange(start=X_train[:,0].min()-1, stop=X_train[:,0].max()+1, step=0.01)
-    b = np.arange(start=X_train[:,1].min()-1, stop=X_train[:,1].max()+1, step=0.01)
+    a = np.arange(start=X_train[:,0].min()-1, stop=X_train[:,0].max()+1, step=selected_step)
+    b = np.arange(start=X_train[:,1].min()-1, stop=X_train[:,1].max()+1, step=selected_step)
     XX, YY = np.meshgrid(a, b)
     input_array = np.array([XX.ravel(), YY.ravel()]).T
     labels = knn.predict(input_array)
@@ -123,13 +123,14 @@ st.title('K-Nearest Neighbors')
 
 with st.sidebar:
     # Set up Streamlit sidebar
-    # st.sidebar.header("Plot Settings")
+    st.sidebar.header("Plot Settings")
     # [fig_width, fig_height] = [st.sidebar.slider(label, 1, 20, default) for label, default in [("Figure Width", 10), ("Figure Height", 6)]]
     # selected_alpha = st.sidebar.slider('Select the transparency of the decision boundary', min_value=0.0, max_value=1.0, value=0.5, step=0.1)
     fig_width, fig_height = 10, 6
     selected_alpha = 0.5
+    selected_step = st.sidebar.slider('Select the stepsize for the grid', min_value=0.001, max_value=0.02, value=0.01, step=0.001)
     
-    # st.write("---")
+    st.write("---")
     st.sidebar.header("Data Settings")
     pattern = st.selectbox('Select a pattern', ['Linear', 'Concentric Circle', 'Spiral', 'Blob', 'Crescent', 'Normal', 'Random'])
     num_classes = st.slider('Select the number of classes', min_value=2, max_value=10, value=2, step=1)

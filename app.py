@@ -123,11 +123,13 @@ st.title('K-Nearest Neighbors')
 
 with st.sidebar:
     # Set up Streamlit sidebar
-    st.sidebar.header("Plot Settings")
-    [fig_width, fig_height] = [st.sidebar.slider(label, 1, 20, default) for label, default in [("Figure Width", 10), ("Figure Height", 6)]]
-    selected_alpha = st.sidebar.slider('Select the transparency of the decision boundary', min_value=0.0, max_value=1.0, value=0.5, step=0.1)
-
-    st.write("---")
+    # st.sidebar.header("Plot Settings")
+    # [fig_width, fig_height] = [st.sidebar.slider(label, 1, 20, default) for label, default in [("Figure Width", 10), ("Figure Height", 6)]]
+    # selected_alpha = st.sidebar.slider('Select the transparency of the decision boundary', min_value=0.0, max_value=1.0, value=0.5, step=0.1)
+    fig_width, fig_height = 10, 6
+    selected_alpha = 0.5
+    
+    # st.write("---")
     st.sidebar.header("Data Settings")
     pattern = st.selectbox('Select a pattern', ['Linear', 'Concentric Circle', 'Spiral', 'Blob', 'Crescent', 'Normal', 'Random'])
     num_classes = st.slider('Select the number of classes', min_value=2, max_value=10, value=2, step=1)
@@ -150,7 +152,7 @@ with st.sidebar:
 
     st.write("---")
 
-if st.button('Get Decision Boundary'):
+if st.button('Get Decision Boundary and Bias Variance Tradeoff'):
     # st.write('Decision Boundary')
     fig, result = keffect(min(selected_k, num_data_points))
     st.write(fig)
@@ -160,11 +162,14 @@ if st.button('Get Decision Boundary'):
     st.write('MSE:', round(result[1], 3))
     st.write('Bias:', round(result[2], 3))
     st.write('Variance:', round(result[3], 3))
-
-if st.button('Get Bias-Variance Tradeoff'):
-    # st.write('Bias-Variance Tradeoff')
+    
     fig2 = plot_bias_variance_tradeoff(min(start_value, num_data_points), min(end_value, num_data_points))
     st.write(fig2)
+
+# if st.button('Get Bias-Variance Tradeoff'):
+    ## st.write('Bias-Variance Tradeoff')
+    # fig2 = plot_bias_variance_tradeoff(min(start_value, num_data_points), min(end_value, num_data_points))
+    # st.write(fig2)
 
 
 

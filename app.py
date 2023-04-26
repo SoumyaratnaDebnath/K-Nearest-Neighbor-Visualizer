@@ -147,7 +147,7 @@ with st.sidebar:
     )
     start_value, end_value = range_slider
 
-if st.button('Get Decision Boundary and Bias Variance Tradeoff'):
+if st.button('Get Decision Boundary and '):
     # st.write('Decision Boundary')
     fig, result = keffect(min(selected_k, num_data_points))
     st.write(fig)
